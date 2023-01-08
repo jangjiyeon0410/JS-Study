@@ -38,3 +38,31 @@
 // describePopulation2('America', 100);
 // describePopulation2('Portugal', 10);
 // describePopulation2('China', 1000);
+
+const populations = [50, 30, 40, 70];
+console.log(populations.length === 4);
+const percentages = [
+	percentageOfWorld1(populations[0]),
+	percentageOfWorld1(populations[1]),
+	percentageOfWorld1(populations[2]),
+	percentageOfWorld1(populations[3]),
+];
+console.log(percentages);
+
+function percentageOfWorld1(population) {
+	return (population / 7900) * 100;
+}
+
+const countries = ['Japan', 'China', 'Korea', 'Vietnam', 'Thailand'];
+const neighbours = [
+	countries[2],
+	countries[3],
+	countries[countries.length - 1],
+];
+
+neighbours.push('Utopia');
+neighbours.pop();
+if (!neighbours.includes('Germany')) {
+	console.log('Probably not a central European country :D');
+}
+neighbours[neighbours.indexOf['Korea']] = 'Republic of Korea';
