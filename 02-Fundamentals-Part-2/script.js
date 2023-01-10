@@ -165,7 +165,7 @@ const ages = [
 	calcAge(years[(years, length - 1)]),
 ];
 console.log(ages);
-*/
+
 
 const friends = ['Michael', 'Steven', 'Peter'];
 
@@ -197,3 +197,22 @@ console.log(friends.includes('23')); //type corecion X
 if (friends.includes('Steven')) {
 	console.log('You have a friend called Steven');
 }
+
+
+// Codefing Challenge #2
+const clacTip = function (bill) {
+	return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+	// if (bill >= 50 && bill <= 300) {
+	// 	return bill * 0.15;
+	// } else {
+	// 	return bill * 0.2;
+	// }
+};
+console.log(clacTip(100));
+
+const bills = [125, 555, 44];
+const tips = [clacTip(bills[0]), clacTip(bills[1]), clacTip(bills[2])];
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+
+console.log(bills, tips, total);
+*/
