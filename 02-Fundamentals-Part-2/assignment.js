@@ -67,4 +67,34 @@ if (!neighbours.includes('Germany')) {
 	console.log('Probably not a central European country :D');
 }
 neighbours[neighbours.indexOf['Korea']] = 'Republic of Korea';
+
+
+const myCountry = {
+	country: 'Korea',
+	capital: 'Seoul',
+	language: 'Korean',
+	population: 55,
+	neighbours: ['China', 'Japna', 'Vietnam', 'Thailand'],
+	describe: function () {
+		console.log(
+			`${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neibouring countries and a capital called ${this.capital}.`
+		);
+	},
+	checkIsland: function () {
+		// return (this.isIsland = this.neighbours.length === 0 ? true : false);
+		return (this.isIsland = !Boolean(this.neighbours.length));
+	},
+};
+
+console.log(myCountry.checkIsland());
+
+console.log(
+	`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neibouring countries and a capital called ${myCountry.capital}.`
+);
+
+myCountry.population += 2;
+console.log(myCountry.population);
+myCountry['population'] -= 2;
+
+myCountry.describe();
 */

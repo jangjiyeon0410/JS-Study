@@ -142,10 +142,10 @@ friends[2] = 'Jay';
 console.log(friends);
 // friends = ['bob', 'alice', 'ji'];
 
-const firstName = 'Jonas';
-const jonas = [firstName, 'Schmedtmann', 'teacher', 2037 - 1995, friends];
-console.log(jonas);
-console.log(jonas.length);
+const firstName = 'Jiyeon';
+const jiyeon = [firstName, 'Schmedtmann', 'teacher', 2037 - 1995, friends];
+console.log(jiyeon);
+console.log(jiyeon.length);
 
 // Exercise
 const calcAge = function (birthyear) {
@@ -215,4 +215,111 @@ const tips = [clacTip(bills[0]), clacTip(bills[1]), clacTip(bills[2])];
 const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
 
 console.log(bills, tips, total);
+
+
+const jiyeon = {
+	firstName: 'Jiyeon',
+	lastName: 'Jang',
+	age: 2037 - 1995,
+	job: 'developer',
+	friends: ['Michael', 'Peter', 'Steven'],
+};
+console.group(jiyeon);
+
+console.log(jiyeon.lastName); // .can't be a expression
+console.log(jiyeon['lastName']); // [] any expression
+
+const nameKey = 'Name';
+console.log(jiyeon['first' + nameKey]);
+console.log(jiyeon['last' + nameKey]);
+
+//console.log(jiyeon.'last' + nameKey)
+
+const interestedIn = prompt(
+	'What do you want to know about jiyeon? Choose btw firstName, lastName, age, job, and friends.'
+);
+console.log(jiyeon.interestedIn);
+
+if (jiyeon[interestedIn]) {
+	console.log(jiyeon[interestedIn]);
+} else {
+	console.log(
+		'Wrong request! Choose btw firstName, lastName, age, job, and friends.'
+	);
+}
+
+// Addition new property
+jiyeon.loacation = 'Korea';
+jiyeon['twitter'] = '@jiyeon';
+console.log(jiyeon);
+
+// Challenge
+console.log(
+	`${jiyeon.firstName} has ${jiyeon.friends.length} friends, and his best friend is called ${jiyeon.friends[0]}`
+);
+
+
+const jiyeon = {
+	firstName: 'Jiyeon',
+	lastName: 'Jang',
+	birthYear: 1995,
+	job: 'developer',
+	friends: ['Michael', 'Peter', 'Steven'],
+	hasDriverLicense: true,
+	// calcAge: (birthYear) => 2037 - birthYear,
+
+	// calcAge: function () {
+	// 	// console.log(this);
+	// 	return 2037 - this.birthYear;
+	// },
+
+	calcAge: function () {
+		// console.log(this);
+		this.age = 2037 - this.birthYear;
+		return this.age;
+	},
+	getSummary: function () {
+		return `${this.firstName} is a ${this.calcAge()}-years old ${
+			this.job
+		}, and he has ${this.hasDriverLicense ? 'a' : 'no'} driver's license`;
+	},
+};
+
+console.log(jiyeon.calcAge());
+console.log(jiyeon.age);
+console.log(jiyeon.age);
+console.log(jiyeon.age);
+
+// Challenge
+// "Jonas is a 46-years old teacher, and he has a driver's license."
+console.log(jiyeon.getSummary());
+
+
+// Cording Challenge #3
+const MarkMiller = {
+	fullName: 'Mark Miller',
+	mass: 78,
+	height: 1.69,
+	calcBMI: function () {
+		return (this.BMI = this.mass / this.height ** 2);
+	},
+};
+const JohnSmith = {
+	fullName: 'John Smith',
+	mass: 92,
+	height: 1.95,
+	calcBMI: function () {
+		return (this.BMI = this.mass / this.height ** 2);
+	},
+};
+MarkMiller.calcBMI();
+JohnSmith.calcBMI();
+
+MarkMiller.BMI > JohnSmith.BMI
+	? console.log(
+			`${MarkMiller.fullName}'s BMI (${MarkMiller.BMI}) is higher than ${JohnSmith.fullName}'s (${JohnSmith.BMI})!`
+	  )
+	: console.log(
+			`${JohnSmith.fullName}'s BMI (${JohnSmith.BMI}) is higher than ${MarkMiller.fullName}'s (${JohnSmith.BMI})!`
+	  );
 */
