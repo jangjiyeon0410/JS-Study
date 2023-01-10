@@ -322,4 +322,135 @@ MarkMiller.BMI > JohnSmith.BMI
 	: console.log(
 			`${JohnSmith.fullName}'s BMI (${JohnSmith.BMI}) is higher than ${MarkMiller.fullName}'s (${JohnSmith.BMI})!`
 	  );
+
+
+// Loop Statement
+// console.log('Lifting weights repetition 1');
+// console.log('Lifting weights repetition 2');
+// console.log('Lifting weights repetition 3');
+// console.log('Lifting weights repetition 4');
+// console.log('Lifting weights repetition 5');
+// console.log('Lifting weights repetition 6');
+// console.log('Lifting weights repetition 7');
+// console.log('Lifting weights repetition 8');
+// console.log('Lifting weights repetition 9');
+// console.log('Lifting weights repetition 10');
+
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 10; rep++) {
+	console.log(`Lifting weights repetition ${rep}`);
+}
+
+const jiyeon = [
+	'Jiyeon',
+	'Jang',
+	2037 - 1995,
+	'developer',
+	['Michael', 'Preter', 'Steven'],
+	true,
+];
+const types = [];
+
+for (let i = 0; i < jiyeon.length; i++) {
+	// Reading from jiyeon array
+	console.log(jiyeon[i], typeof jiyeon[i]);
+
+	// Filling types array
+	// types[i] = typeof jiyeon[i];
+	types.push(typeof jiyeon[i]);
+}
+console.log(types);
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+	ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+// continue and break
+console.log('--- ONLY STRING ---');
+for (let i = 0; i < jiyeon.length; i++) {
+	if (typeof jiyeon[i] != 'string') continue; // continue -> immediately exit the crrent iteration
+
+	console.log(jiyeon[i], typeof jiyeon[i]);
+}
+
+console.log('--- BREAK WITH NUMBER ---');
+for (let i = 0; i < jiyeon.length; i++) {
+	if (typeof jiyeon[i] === 'number') break; // loop exit
+
+	console.log(jiyeon[i], typeof jiyeon[i]);
+}
+
+
+const jiyeon = [
+	'Jiyeon',
+	'Jang',
+	2037 - 1995,
+	'developer',
+	['Michael', 'Preter', 'Steven'],
+	true,
+];
+
+// 0, 1, ..., 4
+// 4, 3, ..., 3
+
+for (let i = jiyeon.length - 1; i >= 0; i--) {
+	console.log(jiyeon[i]);
+}
+
+for (let exercise = 1; exercise <= 3; exercise++) {
+	console.log(`------ Starting exercise ${exercise}`);
+
+	for (let rep = 1; rep <= 5; rep++) {
+		console.log(`Exercise: ${exercise}: Lifring weight repetition ${rep} 🚴‍♀️`);
+	}
+}
+
+
+// for (let rep = 1; rep <= 10; rep++) {
+// 	console.log(`Lifting weights repetition ${rep} 🚴‍♀️`);
+// }
+
+let rep = 1;
+while (rep <= 10) {
+	// console.log(`WHILE: Lifting weights repetition ${rep} 🚴‍♀️`);
+	rep++;
+}
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+console.log(dice);
+
+while (dice !== 6) {
+	console.log(`You rolled a ${dice}`);
+	dice = Math.trunc(Math.random() * 6) + 1;
+	if (dice === 6) console.log('Loop is about to end...');
+}
 */
+
+// Cording Challenge #4
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+const clacTip = function (bill) {
+	return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+
+for (let i = 0; i < bills.length; i++) {
+	tips[i] = clacTip(bills[i]);
+	totals.push(bills[i] + tips[i]);
+}
+console.log(bills, tips, totals);
+
+const clacAverage = function (arr) {
+	let sum = 0;
+	for (let i = 0; i < arr.length; i++) {
+		sum += arr[i];
+	}
+	return sum / arr.length;
+};
+
+console.log(clacAverage(totals));
+console.log(clacAverage(tips));
