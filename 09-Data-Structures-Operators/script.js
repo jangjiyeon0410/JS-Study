@@ -1,5 +1,6 @@
 'use strict';
 
+/*
 // Data needed for a later exercise
 const flights =
 	'_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
@@ -54,6 +55,81 @@ const restaurant = {
 	},
 };
 
+const rest1 = {
+	name: 'Capri',
+	// numGeusts: 20,
+	numGeusts: 0,
+};
+
+const rest2 = {
+	name: 'La Piazza',
+	owner: 'Giovanni Rossi',
+};
+
+// OR assignment operator
+// rest1.numGeusts = rest1.numGeusts || 10;
+// rest2.numGeusts = rest2.numGeusts || 10;
+// rest1.numGeusts ||= 10;
+// rest2.numGeusts ||= 10;
+
+// nullish assignment operator
+rest1.numGeusts ??= 10;
+rest2.numGeusts ??= 10;
+
+// AND assignment operator
+// rest2.owner = rest1.owner && '<ANONYMOUS>';
+// rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest1.owner &&= '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';    // 값이 있으면 반환할 값
+
+console.log(rest1, rest2);
+
+
+// Nullish coalescing operator (null 병합 연산자)'
+restaurant.numGeusts = 0;
+const guests = restaurant.numGeusts || 10;
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '') -> 0과 ''(empty string)을 falsy vlaue로 보지 않음
+const guestCorrect = restaurant.numGeusts ?? 10;
+console.log(guestCorrect);
+
+
+console.log('------- OR --------');
+
+// Use Any data type, retrun ANY data type, short-circuiting(단축평가) => 비교의 첫 번째 값이 true 이면, 바로 그 값을 출력함 => 하나라도 참이면 참을 반환
+console.log(3 || 'JIyeon');
+console.log('' || 'Jiyoen');
+console.log(true || 0);
+console.log(undefined || null); // 어느 것도 참이 아닐 경우에는, false를 반환하고 두 항 모두 평가하기 때문에 마지막 값을 반환?
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// Practical example
+// restaurant.numGeusts = 0;
+const guests1 = restaurant.numGeusts ? restaurant.numGeusts : 10;
+console.log(guests1);
+const guest2 = restaurant.numGeusts || 10;
+console.log(guest2);
+
+console.log('------- AND --------'); // exact opposit to OR
+console.log(0 && 'Jiyeon'); // 첫번째 값이 flase니까 뒤에는 평가하지 않고 바로 false를 반환함
+console.log(7 && 'Jiyeon'); // 첫번째 참 -> 뒤까지 평가 -> 뒤에 값 트루 -> 뒤에 값 반환
+
+console.log('Hello' && 23 && null && 'Jiyeon');
+
+// Practical example
+if (restaurant.orderPizza) {
+	restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+// OR operator는 첫번째 true 값을 반환하거나, 모두 false 일 때는 마지막 flase 값을 반환
+// AND operator는 첫번째 false 값을 반환하거나, 모두 true 일 때는 마지막 true 값을 반환함
+// 실용적인 측면에서 디폴트 값을 설정하기 위헤 OR를 사용할 수 있고, 첫 번째 값이 true 라면 코드를 실행시키도록 AND를 사용할 수 있다.
+
+
 // 1) Destructring
 // SPREAD, because on RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
@@ -91,7 +167,7 @@ add(...x);
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushroom');
 
-/*
+
 /////////////////////////////////////
 // The Spread Operator (...)
 
@@ -223,3 +299,79 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 */
+
+// Cording Challenge #1
+const game = {
+	team1: 'Bayern Munich',
+	team2: 'Borrussia Dortmund',
+	players: [
+		[
+			'Neuer',
+			'Pavard',
+			'Martinez',
+			'Alaba',
+			'Davies',
+			'Kimmich',
+			'Goretzka',
+			'Coman',
+			'Muller',
+			'Gnarby',
+			'Lewandowski',
+		],
+		[
+			'Burki',
+			'Schulz',
+			'Hummels',
+			'Akanji',
+			'Hakimi',
+			'Weigl',
+			'Witsel',
+			'Hazard',
+			'Brandt',
+			'Sancho',
+			'Gotze',
+		],
+	],
+	score: '4:0',
+	scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+	date: 'Nov 9th, 2037',
+	odds: {
+		team1: 1.33,
+		x: 3.25,
+		team2: 6.5,
+	},
+};
+
+// 1.
+const [player1, player2] = game.players;
+console.log(player1, player2);
+
+// 2.
+const [gk, ...fieldPlayers] = player1;
+console.log(gk, fieldPlayers);
+
+// 3.
+const allPlayers = [...player1, ...player2];
+console.log(allPlayers);
+
+// 4.
+const players1Final = [...player1, 'Thiago', 'Coutinho', 'Perisic'];
+console.log(players1Final);
+
+// 5.
+// const { team1, x: draw, team2 } = game.odds;
+const {
+	odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+//6.
+const printGoals = function (...goalPlayer) {
+	console.log(`${goalPlayer}/total score: ${goalPlayer.length}`);
+};
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals(...game.scored);
+
+// 7.
+team1 < team2 && console.log('Team1 is more likely to win');
+team1 > team2 && console.log('Team2 is more likely to win');
