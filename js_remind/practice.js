@@ -41,11 +41,17 @@ window.addEventListener('scroll', function (){
     };
 });
 
+let scrollBar = document.querySelector('.scrollBar');
+
 lorem.addEventListener('scroll', function (){
     let scrollTop = lorem.scrollTop;
-    const height = lorem.clientHeight;
+    // const height = lorem.clientHeight;
+    console.log(scrollTop)
+    
+    scrollBar.style.width = `${scrollTop}%`
 
-    if(scrollTop > height - 10){
-        alert('읽기완료');
-    }
+    // if(scrollTop > height - 10){
+    //     alert('읽기완료');
+    // }
+
 });

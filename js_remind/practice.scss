@@ -15,7 +15,6 @@ header{
         margin-top: 100px;
         list-style: none;
         display: flex;
-        justify-content:space-between;
 
         li{
             font-size: 2rem;
@@ -26,14 +25,24 @@ header{
 
 .inner{
     div{
+        position: relative;
         width: 100%;
         height: 1500px;
-        background-color: orange;
+        // background-color: orange;
 
         p{
             width: 400px;
             height: 100px;
             overflow-y: scroll;
+        }
+
+        span{
+            position: absolute;
+            top: 0px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #000;
         }
     }
 }
